@@ -1,0 +1,640 @@
+{
+  "talhoes": [
+    {
+      "id": "talhao-0",
+      "nome": "Talh\u00e3o A",
+      "localizacao": "Setor 1",
+      "hectares": 8,
+      "tipo_solo": "Argiloso"
+    },
+    {
+      "id": "talhao-1",
+      "nome": "Talh\u00e3o B",
+      "localizacao": "Setor 2",
+      "hectares": 9,
+      "tipo_solo": "Arenoso"
+    },
+    {
+      "id": "talhao-2",
+      "nome": "Talh\u00e3o C",
+      "localizacao": "Setor 3",
+      "hectares": 10,
+      "tipo_solo": "Argiloso"
+    },
+    {
+      "id": "talhao-3",
+      "nome": "Talh\u00e3o D",
+      "localizacao": "Setor 4",
+      "hectares": 11,
+      "tipo_solo": "Arenoso"
+    },
+    {
+      "id": "talhao-4",
+      "nome": "Talh\u00e3o E",
+      "localizacao": "Setor 5",
+      "hectares": 12,
+      "tipo_solo": "Argiloso"
+    },
+    {
+      "id": "talhao-5",
+      "nome": "Talh\u00e3o F",
+      "localizacao": "Setor 6",
+      "hectares": 13,
+      "tipo_solo": "Arenoso"
+    },
+    {
+      "id": "talhao-6",
+      "nome": "Talh\u00e3o G",
+      "localizacao": "Setor 7",
+      "hectares": 14,
+      "tipo_solo": "Argiloso"
+    },
+    {
+      "id": "talhao-7",
+      "nome": "Talh\u00e3o H",
+      "localizacao": "Setor 8",
+      "hectares": 15,
+      "tipo_solo": "Arenoso"
+    },
+    {
+      "id": "talhao-8",
+      "nome": "Talh\u00e3o I",
+      "localizacao": "Setor 9",
+      "hectares": 16,
+      "tipo_solo": "Argiloso"
+    },
+    {
+      "id": "talhao-9",
+      "nome": "Talh\u00e3o J",
+      "localizacao": "Setor 10",
+      "hectares": 17,
+      "tipo_solo": "Arenoso"
+    }
+  ],
+  "operadores": [
+    {
+      "id": "operador-0",
+      "nome": "Operador A",
+      "turno": "diurno"
+    },
+    {
+      "id": "operador-1",
+      "nome": "Operador B",
+      "turno": "noturno"
+    },
+    {
+      "id": "operador-2",
+      "nome": "Operador C",
+      "turno": "diurno"
+    },
+    {
+      "id": "operador-3",
+      "nome": "Operador D",
+      "turno": "noturno"
+    },
+    {
+      "id": "operador-4",
+      "nome": "Operador E",
+      "turno": "diurno"
+    },
+    {
+      "id": "operador-5",
+      "nome": "Operador F",
+      "turno": "noturno"
+    },
+    {
+      "id": "operador-6",
+      "nome": "Operador G",
+      "turno": "diurno"
+    },
+    {
+      "id": "operador-7",
+      "nome": "Operador H",
+      "turno": "noturno"
+    },
+    {
+      "id": "operador-8",
+      "nome": "Operador I",
+      "turno": "diurno"
+    },
+    {
+      "id": "operador-9",
+      "nome": "Operador J",
+      "turno": "noturno"
+    }
+  ],
+  "maquinas": [
+    {
+      "id": "maquina-0",
+      "modelo": "Modelo 1",
+      "ano": 2020,
+      "tipo": "colhedora"
+    },
+    {
+      "id": "maquina-1",
+      "modelo": "Modelo 2",
+      "ano": 2021,
+      "tipo": "colhedora"
+    },
+    {
+      "id": "maquina-2",
+      "modelo": "Modelo 3",
+      "ano": 2022,
+      "tipo": "colhedora"
+    },
+    {
+      "id": "maquina-3",
+      "modelo": "Modelo 4",
+      "ano": 2023,
+      "tipo": "colhedora"
+    },
+    {
+      "id": "maquina-4",
+      "modelo": "Modelo 5",
+      "ano": 2020,
+      "tipo": "colhedora"
+    },
+    {
+      "id": "maquina-5",
+      "modelo": "Modelo 6",
+      "ano": 2021,
+      "tipo": "colhedora"
+    },
+    {
+      "id": "maquina-6",
+      "modelo": "Modelo 7",
+      "ano": 2022,
+      "tipo": "colhedora"
+    },
+    {
+      "id": "maquina-7",
+      "modelo": "Modelo 8",
+      "ano": 2023,
+      "tipo": "colhedora"
+    },
+    {
+      "id": "maquina-8",
+      "modelo": "Modelo 9",
+      "ano": 2020,
+      "tipo": "colhedora"
+    },
+    {
+      "id": "maquina-9",
+      "modelo": "Modelo 10",
+      "ano": 2021,
+      "tipo": "colhedora"
+    }
+  ],
+  "colheitas": [
+    {
+      "id": "colheita-0",
+      "talhao_id": "talhao-0",
+      "operador_id": "operador-0",
+      "maquina_id": "maquina-0",
+      "tipo_colheita": "mecanica",
+      "quantidade_colhida": 850,
+      "perda_estimada": 127.5,
+      "perda_real": 100,
+      "causa_perda": "faca cega",
+      "severidade": "moderada",
+      "condicoes": {
+        "turno": "diurno",
+        "clima": "seco",
+        "solo": "Argiloso"
+      },
+      "data": "2025-04-10"
+    },
+    {
+      "id": "colheita-1",
+      "talhao_id": "talhao-1",
+      "operador_id": "operador-1",
+      "maquina_id": "maquina-1",
+      "tipo_colheita": "manual",
+      "quantidade_colhida": 860,
+      "perda_estimada": 43.0,
+      "perda_real": 105,
+      "causa_perda": "atrito no solo",
+      "severidade": "cr\u00edtica",
+      "condicoes": {
+        "turno": "noturno",
+        "clima": "\u00famido",
+        "solo": "Arenoso"
+      },
+      "data": "2025-04-11"
+    },
+    {
+      "id": "colheita-2",
+      "talhao_id": "talhao-2",
+      "operador_id": "operador-2",
+      "maquina_id": "maquina-2",
+      "tipo_colheita": "mecanica",
+      "quantidade_colhida": 870,
+      "perda_estimada": 130.5,
+      "perda_real": 110,
+      "causa_perda": "atrito no solo",
+      "severidade": "moderada",
+      "condicoes": {
+        "turno": "diurno",
+        "clima": "seco",
+        "solo": "Argiloso"
+      },
+      "data": "2025-04-12"
+    },
+    {
+      "id": "colheita-3",
+      "talhao_id": "talhao-3",
+      "operador_id": "operador-3",
+      "maquina_id": "maquina-3",
+      "tipo_colheita": "manual",
+      "quantidade_colhida": 880,
+      "perda_estimada": 44.0,
+      "perda_real": 115,
+      "causa_perda": "faca cega",
+      "severidade": "cr\u00edtica",
+      "condicoes": {
+        "turno": "noturno",
+        "clima": "\u00famido",
+        "solo": "Arenoso"
+      },
+      "data": "2025-04-13"
+    },
+    {
+      "id": "colheita-4",
+      "talhao_id": "talhao-4",
+      "operador_id": "operador-4",
+      "maquina_id": "maquina-4",
+      "tipo_colheita": "mecanica",
+      "quantidade_colhida": 890,
+      "perda_estimada": 133.5,
+      "perda_real": 120,
+      "causa_perda": "atrito no solo",
+      "severidade": "moderada",
+      "condicoes": {
+        "turno": "diurno",
+        "clima": "seco",
+        "solo": "Argiloso"
+      },
+      "data": "2025-04-14"
+    },
+    {
+      "id": "colheita-5",
+      "talhao_id": "talhao-5",
+      "operador_id": "operador-5",
+      "maquina_id": "maquina-5",
+      "tipo_colheita": "manual",
+      "quantidade_colhida": 900,
+      "perda_estimada": 45.0,
+      "perda_real": 125,
+      "causa_perda": "atrito no solo",
+      "severidade": "cr\u00edtica",
+      "condicoes": {
+        "turno": "noturno",
+        "clima": "\u00famido",
+        "solo": "Arenoso"
+      },
+      "data": "2025-04-15"
+    },
+    {
+      "id": "colheita-6",
+      "talhao_id": "talhao-6",
+      "operador_id": "operador-6",
+      "maquina_id": "maquina-6",
+      "tipo_colheita": "mecanica",
+      "quantidade_colhida": 910,
+      "perda_estimada": 136.5,
+      "perda_real": 130,
+      "causa_perda": "faca cega",
+      "severidade": "moderada",
+      "condicoes": {
+        "turno": "diurno",
+        "clima": "seco",
+        "solo": "Argiloso"
+      },
+      "data": "2025-04-16"
+    },
+    {
+      "id": "colheita-7",
+      "talhao_id": "talhao-7",
+      "operador_id": "operador-7",
+      "maquina_id": "maquina-7",
+      "tipo_colheita": "manual",
+      "quantidade_colhida": 920,
+      "perda_estimada": 46.0,
+      "perda_real": 135,
+      "causa_perda": "atrito no solo",
+      "severidade": "cr\u00edtica",
+      "condicoes": {
+        "turno": "noturno",
+        "clima": "\u00famido",
+        "solo": "Arenoso"
+      },
+      "data": "2025-04-17"
+    },
+    {
+      "id": "colheita-8",
+      "talhao_id": "talhao-8",
+      "operador_id": "operador-8",
+      "maquina_id": "maquina-8",
+      "tipo_colheita": "mecanica",
+      "quantidade_colhida": 930,
+      "perda_estimada": 139.5,
+      "perda_real": 140,
+      "causa_perda": "atrito no solo",
+      "severidade": "moderada",
+      "condicoes": {
+        "turno": "diurno",
+        "clima": "seco",
+        "solo": "Argiloso"
+      },
+      "data": "2025-04-18"
+    },
+    {
+      "id": "colheita-9",
+      "talhao_id": "talhao-9",
+      "operador_id": "operador-9",
+      "maquina_id": "maquina-9",
+      "tipo_colheita": "manual",
+      "quantidade_colhida": 940,
+      "perda_estimada": 47.0,
+      "perda_real": 145,
+      "causa_perda": "faca cega",
+      "severidade": "cr\u00edtica",
+      "condicoes": {
+        "turno": "noturno",
+        "clima": "\u00famido",
+        "solo": "Arenoso"
+      },
+      "data": "2025-04-19"
+    },
+    {
+      "id": "colheita-10",
+      "talhao_id": "talhao-0",
+      "operador_id": "operador-2",
+      "maquina_id": "maquina-5",
+      "tipo_colheita": "mecanica",
+      "quantidade_colhida": 950,
+      "perda_estimada": 142.5,
+      "perda_real": 130,
+      "causa_perda": "velocidade excessiva",
+      "severidade": "moderada",
+      "condicoes": {
+        "turno": "diurno",
+        "clima": "seco",
+        "solo": "Argiloso"
+      },
+      "data": "2025-04-20"
+    },
+    {
+      "id": "colheita-11",
+      "talhao_id": "talhao-1",
+      "operador_id": "operador-4",
+      "maquina_id": "maquina-3",
+      "tipo_colheita": "manual",
+      "quantidade_colhida": 960,
+      "perda_estimada": 48.0,
+      "perda_real": 150,
+      "causa_perda": "manuseio incorreto",
+      "severidade": "leve",
+      "condicoes": {
+        "turno": "diurno",
+        "clima": "\u00famido",
+        "solo": "Arenoso"
+      },
+      "data": "2025-04-21"
+    },
+    {
+      "id": "colheita-12",
+      "talhao_id": "talhao-2",
+      "operador_id": "operador-6",
+      "maquina_id": "maquina-1",
+      "tipo_colheita": "mecanica",
+      "quantidade_colhida": 970,
+      "perda_estimada": 145.5,
+      "perda_real": 125,
+      "causa_perda": "regulagem incorreta",
+      "severidade": "cr\u00edtica",
+      "condicoes": {
+        "turno": "diurno",
+        "clima": "chuvoso",
+        "solo": "Argiloso"
+      },
+      "data": "2025-04-22"
+    },
+    {
+      "id": "colheita-13",
+      "talhao_id": "talhao-3",
+      "operador_id": "operador-8",
+      "maquina_id": "maquina-7",
+      "tipo_colheita": "manual",
+      "quantidade_colhida": 980,
+      "perda_estimada": 49.0,
+      "perda_real": 140,
+      "causa_perda": "colheita tardia",
+      "severidade": "moderada",
+      "condicoes": {
+        "turno": "noturno",
+        "clima": "seco",
+        "solo": "Arenoso"
+      },
+      "data": "2025-04-23"
+    },
+    {
+      "id": "colheita-14",
+      "talhao_id": "talhao-4",
+      "operador_id": "operador-0",
+      "maquina_id": "maquina-9",
+      "tipo_colheita": "mecanica",
+      "quantidade_colhida": 990,
+      "perda_estimada": 148.5,
+      "perda_real": 135,
+      "causa_perda": "faca cega",
+      "severidade": "leve",
+      "condicoes": {
+        "turno": "diurno",
+        "clima": "seco",
+        "solo": "Argiloso"
+      },
+      "data": "2025-04-24"
+    },
+    {
+      "id": "colheita-15",
+      "talhao_id": "talhao-5",
+      "operador_id": "operador-2",
+      "maquina_id": "maquina-4",
+      "tipo_colheita": "manual",
+      "quantidade_colhida": 1000,
+      "perda_estimada": 50.0,
+      "perda_real": 160,
+      "causa_perda": "atrito no solo",
+      "severidade": "cr\u00edtica",
+      "condicoes": {
+        "turno": "diurno",
+        "clima": "\u00famido",
+        "solo": "Arenoso"
+      },
+      "data": "2025-04-25"
+    },
+    {
+      "id": "colheita-16",
+      "talhao_id": "talhao-6",
+      "operador_id": "operador-4",
+      "maquina_id": "maquina-0",
+      "tipo_colheita": "mecanica",
+      "quantidade_colhida": 1010,
+      "perda_estimada": 151.5,
+      "perda_real": 145,
+      "causa_perda": "velocidade excessiva",
+      "severidade": "moderada",
+      "condicoes": {
+        "turno": "diurno",
+        "clima": "seco",
+        "solo": "Argiloso"
+      },
+      "data": "2025-04-26"
+    },
+    {
+      "id": "colheita-17",
+      "talhao_id": "talhao-7",
+      "operador_id": "operador-6",
+      "maquina_id": "maquina-2",
+      "tipo_colheita": "manual",
+      "quantidade_colhida": 1020,
+      "perda_estimada": 51.0,
+      "perda_real": 155,
+      "causa_perda": "manuseio incorreto",
+      "severidade": "leve",
+      "condicoes": {
+        "turno": "noturno",
+        "clima": "chuvoso",
+        "solo": "Arenoso"
+      },
+      "data": "2025-04-27"
+    },
+    {
+      "id": "colheita-18",
+      "talhao_id": "talhao-8",
+      "operador_id": "operador-8",
+      "maquina_id": "maquina-4",
+      "tipo_colheita": "mecanica",
+      "quantidade_colhida": 1030,
+      "perda_estimada": 154.5,
+      "perda_real": 150,
+      "causa_perda": "regulagem incorreta",
+      "severidade": "cr\u00edtica",
+      "condicoes": {
+        "turno": "diurno",
+        "clima": "seco",
+        "solo": "Argiloso"
+      },
+      "data": "2025-04-28"
+    },
+    {
+      "id": "colheita-19",
+      "talhao_id": "talhao-9",
+      "operador_id": "operador-0",
+      "maquina_id": "maquina-6",
+      "tipo_colheita": "manual",
+      "quantidade_colhida": 1040,
+      "perda_estimada": 52.0,
+      "perda_real": 165,
+      "causa_perda": "colheita tardia",
+      "severidade": "moderada",
+      "condicoes": {
+        "turno": "diurno",
+        "clima": "\u00famido",
+        "solo": "Arenoso"
+      },
+      "data": "2025-04-29"
+    },
+    {
+      "id": "colheita-20",
+      "talhao_id": "talhao-0",
+      "operador_id": "operador-1",
+      "maquina_id": "maquina-8",
+      "tipo_colheita": "mecanica",
+      "quantidade_colhida": 1050,
+      "perda_estimada": 157.5,
+      "perda_real": 140,
+      "causa_perda": "faca cega",
+      "severidade": "leve",
+      "condicoes": {
+        "turno": "noturno",
+        "clima": "seco",
+        "solo": "Argiloso"
+      },
+      "data": "2025-04-30"
+    },
+    {
+      "id": "colheita-21",
+      "talhao_id": "talhao-1",
+      "operador_id": "operador-3",
+      "maquina_id": "maquina-0",
+      "tipo_colheita": "manual",
+      "quantidade_colhida": 1060,
+      "perda_estimada": 53.0,
+      "perda_real": 175,
+      "causa_perda": "atrito no solo",
+      "severidade": "cr\u00edtica",
+      "condicoes": {
+        "turno": "noturno",
+        "clima": "chuvoso",
+        "solo": "Arenoso"
+      },
+      "data": "2025-05-01"
+    },
+    {
+      "id": "colheita-22",
+      "talhao_id": "talhao-2",
+      "operador_id": "operador-5",
+      "maquina_id": "maquina-2",
+      "tipo_colheita": "mecanica",
+      "quantidade_colhida": 1070,
+      "perda_estimada": 160.5,
+      "perda_real": 155,
+      "causa_perda": "velocidade excessiva",
+      "severidade": "moderada",
+      "condicoes": {
+        "turno": "noturno",
+        "clima": "seco",
+        "solo": "Argiloso"
+      },
+      "data": "2025-05-02"
+    },
+    {
+      "id": "colheita-23",
+      "talhao_id": "talhao-3",
+      "operador_id": "operador-7",
+      "maquina_id": "maquina-4",
+      "tipo_colheita": "manual",
+      "quantidade_colhida": 1080,
+      "perda_estimada": 54.0,
+      "perda_real": 185,
+      "causa_perda": "manuseio incorreto",
+      "severidade": "leve",
+      "condicoes": {
+        "turno": "noturno",
+        "clima": "\u00famido",
+        "solo": "Arenoso"
+      },
+      "data": "2025-05-03"
+    },
+    {
+      "id": "colheita-24",
+      "talhao_id": "talhao-4",
+      "operador_id": "operador-9",
+      "maquina_id": "maquina-6",
+      "tipo_colheita": "mecanica",
+      "quantidade_colhida": 1090,
+      "perda_estimada": 163.5,
+      "perda_real": 160,
+      "causa_perda": "regulagem incorreta",
+      "severidade": "cr\u00edtica",
+      "condicoes": {
+        "turno": "noturno",
+        "clima": "chuvoso",
+        "solo": "Argiloso"
+      },
+      "data": "2025-05-04"
+    }
+  ]
+}
