@@ -41,34 +41,6 @@ Com base nessas informações, o sistema **gera relatórios detalhados** com ran
 
 ---
 
-## 📁 Estrutura de pastas
-
-```
-📁 projeto-agrotrack-cana/
-├── .github/
-├── assets/
-├── config/
-├── document/
-│   ├── pbl_base.pdf
-│   └── other/
-├── scripts/
-│   └── backup_json.py
-├── src/
-│   ├── main.py
-│   ├── cadastro.py
-│   ├── registro_colheita.py
-│   ├── relatorios.py
-│   ├── simulador.py
-│   ├── persistencia/
-│   │   ├── json_handler.py
-│   │   └── oracle_gateway.py
-│   └── dados/
-│       └── colheitas.json
-└── README.md
-```
-
----
-
 ## 🔧 Como executar o código
 
 ### ✅ Pré-requisitos
