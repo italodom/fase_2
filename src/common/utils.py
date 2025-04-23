@@ -1,11 +1,14 @@
 import uuid
-from src.persistencia.adapters.in_memory_repository import InMemoryRepository
+
+from src.persistencia.adapters.oracle_repository import OracleRepository
+
+CONNECTION_STRING = "dev/dev123@localhost:1521/freepdb1"
 
 _REPOSITORIOS = {
-    "talhoes": InMemoryRepository(),
-    "maquinas": InMemoryRepository(),
-    "operadores": InMemoryRepository(),
-    "colheitas": InMemoryRepository()
+    "talhoes": OracleRepository(CONNECTION_STRING, "talhoes"),
+    "maquinas": OracleRepository(CONNECTION_STRING, "maquinas"),
+    "operadores": OracleRepository(CONNECTION_STRING, "operadores"),
+    "colheitas": OracleRepository(CONNECTION_STRING, "colheitas")
 }
 
 def get_repositorio(nome: str):
