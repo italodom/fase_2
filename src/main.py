@@ -4,7 +4,7 @@ from src.common.utils import obter_entrada_nao_vazia, obter_numero_positivo
 from src.maquinas import cadastrar_maquina, listar_maquinas, atualizar_maquina, deletar_maquina
 from src.operadores import cadastrar_operador, listar_operadores, atualizar_operador, deletar_operador
 from src.registro_colheita import registrar_colheita, listar_colheitas, atualizar_colheita, deletar_colheita, \
-    selecionar_talhao, selecionar_operador, selecionar_maquina
+    selecionar_talhao, selecionar_operador, selecionar_maquina, obter_opcao_tipo_colheita, obter_opcao_severidade
 from src.relatorios import resumo_geral, relatorio_por_talhao, relatorio_por_operador, relatorio_por_maquina, \
     ranking_causas_perda
 from src.talhoes import cadastrar_talhao, listar_talhoes, atualizar_talhao, deletar_talhao
@@ -201,11 +201,11 @@ async def menu_maquinas():
 async def menu_colheitas():
     while True:
         print("""
---- COLHEITAS ---
-1. Registrar
-2. Listar
-3. Atualizar
-4. Deletar
+--- REGISTRO DE COLHEITAS ---
+1. Registrar Nova Colheita
+2. Listar Colheitas
+3. Atualizar Colheita
+4. Deletar Colheita
 0. Voltar""")
         op = input("Escolha: ")
 
@@ -222,38 +222,142 @@ async def menu_colheitas():
             if not maquina_id:
                 continue
 
-            tipo = input("Tipo (manual/mecanica): ")
-            qtd = float(input("Qtd colhida (t): "))
-            perda = float(input("Perda real (t): "))
-            causa = input("Causa da perda: ")
-            severidade = input("Severidade (leve/moderada/crítica): ")
-            turno = input("Turno: ")
-            clima = input("Clima: ")
-            solo = input("Solo: ")
-            data = input("Data (dd/mm/yyyy): ")
+            tipo_colheita = obter_opcao_tipo_colheita()
+
+            quantidade_colhida = obter_numero_positivo("Quantidade colhida (toneladas): ")
+
+            tem_perda_real = input("Informar perda real? (s/n): ").lower().strip() == 's'
+            perda_real = None
+            causa_perda = ""
+            severidade = ""
+
+            if tem_perda_real:
+                while True:
+                    try:
+                        perda_input = input("Perda real (toneladas): ")
+                        if not perda_input.strip():
+                            print("Informe a perda real ou digite '0'.")
+                            continue
+
+                        perda_real = float(perda_input)
+                        if perda_real < 0:
+                            print("A perda real não pode ser negativa.")
+                            continue
+
+                        if perda_real > quantidade_colhida:
+                            print("A perda real não pode ser maior que a quantidade colhida.")
+                            continue
+
+                        causa_perda = input("Causa da perda: ").strip()
+                        severidade = obter_opcao_severidade()
+                        break
+                    except ValueError:
+                        print("Por favor, digite um número válido.")
+
+            data_input = input("Data da colheita (YYYY-MM-DD) ou deixe em branco para usar data atual: ").strip()
+            data = data_input if data_input else None
 
             await registrar_colheita(
-                talhao_id, operador_id, maquina_id, tipo, qtd, perda,
-                causa, severidade,
-                condicoes={"turno": turno, "clima": clima, "solo": solo},
-                data=data
+                talhao_id,
+                operador_id,
+                maquina_id,
+                tipo_colheita,
+                quantidade_colhida,
+                perda_real,
+                causa_perda,
+                severidade,
+                None,  # Condições
+                data
             )
+
         elif op == "2":
             await listar_colheitas()
+
         elif op == "3":
-            id_ = input("ID da colheita: ")
-            campo = input("Campo a atualizar (ex: perda_real): ")
-            valor = input("Novo valor: ")
-            try:
-                valor = float(valor) if "." in valor else int(valor)
-            except:
-                pass
-            await atualizar_colheita(id_, {campo: valor})
+            colheitas = await listar_colheitas()
+            if not colheitas:
+                continue
+
+            id_colheita = input("Digite o ID da colheita que deseja atualizar: ").strip()
+            if not id_colheita:
+                print("ID não pode estar vazio.")
+                continue
+
+            print("Deixe em branco os campos que não deseja alterar:")
+
+            novos_dados = {}
+
+            alterar_tipo = input("Alterar tipo de colheita? (s/n): ").lower().strip() == 's'
+            if alterar_tipo:
+                novos_dados['tipo_colheita'] = obter_opcao_tipo_colheita()
+
+            alterar_quantidade = input("Alterar quantidade colhida? (s/n): ").lower().strip() == 's'
+            if alterar_quantidade:
+                novos_dados['quantidade_colhida'] = obter_numero_positivo("Nova quantidade colhida (toneladas): ")
+
+            alterar_perda = input("Alterar perda real? (s/n): ").lower().strip() == 's'
+            if alterar_perda:
+                tem_perda = input("Informar perda real? (s/n): ").lower().strip() == 's'
+                if tem_perda:
+                    quantidade = novos_dados.get('quantidade_colhida', None)
+                    while True:
+                        try:
+                            perda_input = input("Nova perda real (toneladas): ")
+                            if not perda_input.strip():
+                                print("Informe a perda real ou digite '0'.")
+                                continue
+
+                            perda_real = float(perda_input)
+                            if perda_real < 0:
+                                print("A perda real não pode ser negativa.")
+                                continue
+
+                            if quantidade and perda_real > quantidade:
+                                print("A perda real não pode ser maior que a quantidade colhida.")
+                                continue
+
+                            novos_dados['perda_real'] = perda_real
+                            break
+                        except ValueError:
+                            print("Por favor, digite um número válido.")
+
+                    novos_dados['causa_perda'] = input("Nova causa da perda: ").strip()
+                    novos_dados['severidade'] = obter_opcao_severidade()
+                else:
+                    novos_dados['perda_real'] = None
+                    novos_dados['causa_perda'] = ""
+                    novos_dados['severidade'] = ""
+
+            alterar_data = input("Alterar data? (s/n): ").lower().strip() == 's'
+            if alterar_data:
+                data_input = input("Nova data (YYYY-MM-DD): ").strip()
+                if data_input:
+                    novos_dados['data'] = data_input
+
+            if novos_dados:
+                await atualizar_colheita(id_colheita, novos_dados)
+            else:
+                print("Nenhum dado foi alterado.")
+
         elif op == "4":
-            id_ = input("ID a deletar: ")
-            await deletar_colheita(id_)
+            colheitas = await listar_colheitas()
+            if not colheitas:
+                continue
+
+            id_colheita = input("Digite o ID da colheita que deseja deletar: ").strip()
+            if not id_colheita:
+                print("ID não pode estar vazio.")
+                continue
+
+            confirma = input(f"Tem certeza que deseja deletar a colheita {id_colheita}? (s/n): ").lower().strip()
+            if confirma == 's':
+                await deletar_colheita(id_colheita)
+
         elif op == "0":
             break
+        else:
+            print("Opção inválida. Por favor, escolha uma opção válida.")
+
 
 # RELATÓRIOS
 async def menu_relatorios():
