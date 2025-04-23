@@ -3,8 +3,6 @@
 ## 📌 Nome do projeto
 **CanaTrack360 — Sistema de Rastreabilidade e Análise de Perdas na Colheita Mecanizada da Cana-de-Açúcar**
 
-## 👨‍👩‍👦 Nome do grupo
-
 ## 👨‍🎓 Integrantes:
 - Felipe Cristovão da Silva
 - Italo Domingues
@@ -35,7 +33,7 @@ A colheita mecanizada da cana-de-açúcar, embora eficiente, ainda sofre com per
 - Causa da perda e condições do solo/clima;
 - Severidade da perda (leve, moderada ou crítica).
 
-Com base nessas informações, o sistema **gera relatórios detalhados** com rankings e sugestões de melhoria, além de **simular cenários futuros**, ajudando na tomada de decisão e na redução de perdas futuras.
+Com base nessas informações, o sistema **gera relatórios detalhados** com rankings e sugestões de melhoria, ajudando na tomada de decisão e na redução de perdas futuras.
 
 ---
 
