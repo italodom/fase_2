@@ -110,7 +110,7 @@ async def menu_operadores():
         elif op == "0":
             break
 
-# MÁQUINAS
+# MAQUINAS
 async def menu_maquinas():
     while True:
         print("""
@@ -123,23 +123,69 @@ async def menu_maquinas():
         op = input("Escolha: ")
 
         if op == "1":
-            modelo = input("Modelo: ")
-            ano = int(input("Ano: "))
-            tipo = input("Tipo: ")
+            modelo = obter_entrada_nao_vazia("Modelo: ", "O modelo da máquina não pode estar vazio.")
+            
+            ano = None
+            while ano is None:
+                try:
+                    ano_input = input("Ano: ")
+                    if not ano_input.strip():
+                        print("O ano não pode estar vazio.")
+                        continue
+                        
+                    ano_temp = int(ano_input)
+                    import datetime
+                    ano_atual = datetime.datetime.now().year
+                    if ano_temp < 1900 or ano_temp > ano_atual + 1:
+                        print(f"O ano deve estar entre 1900 e {ano_atual + 1}.")
+                        continue
+                        
+                    ano = ano_temp
+                except ValueError:
+                    print("Por favor, digite um ano válido (número inteiro).")
+            
+            tipo = None
+            
             await cadastrar_maquina(modelo, ano, tipo)
+            
         elif op == "2":
             await listar_maquinas()
+            
         elif op == "3":
-            id_ = input("ID da máquina: ")
-            modelo = input("Novo modelo: ")
-            ano = int(input("Novo ano: "))
-            tipo = input("Novo tipo: ")
+            id_ = obter_entrada_nao_vazia("ID da máquina: ", "O ID não pode estar vazio.")
+            modelo = obter_entrada_nao_vazia("Novo modelo: ", "O modelo não pode estar vazio.")
+            
+            ano = None
+            while ano is None:
+                try:
+                    ano_input = input("Novo ano: ")
+                    if not ano_input.strip():
+                        print("O ano não pode estar vazio.")
+                        continue
+                        
+                    ano_temp = int(ano_input)
+                    import datetime
+                    ano_atual = datetime.datetime.now().year
+                    if ano_temp < 1900 or ano_temp > ano_atual + 1:
+                        print(f"O ano deve estar entre 1900 e {ano_atual + 1}.")
+                        continue
+                        
+                    ano = ano_temp
+                except ValueError:
+                    print("Por favor, digite um ano válido (número inteiro).")
+            
+            tipo = None
+            
             await atualizar_maquina(id_, modelo, ano, tipo)
+            
         elif op == "4":
-            id_ = input("ID a deletar: ")
+            id_ = obter_entrada_nao_vazia("ID a deletar: ", "O ID não pode estar vazio.")
             await deletar_maquina(id_)
+            
         elif op == "0":
             break
+        else:
+            print("Opção inválida. Por favor, escolha uma opção válida.")
 
 # COLHEITAS
 async def menu_colheitas():
