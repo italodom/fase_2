@@ -94,21 +94,31 @@ async def menu_operadores():
         op = input("Escolha: ")
 
         if op == "1":
-            nome = input("Nome: ")
-            turno = input("Turno (diurno/noturno): ")
+            nome = obter_entrada_nao_vazia("Nome: ", "O nome do operador não pode estar vazio.")
+            
+            turno = None
+            
             await cadastrar_operador(nome, turno)
+            
         elif op == "2":
             await listar_operadores()
+            
         elif op == "3":
-            id_ = input("ID do operador: ")
-            nome = input("Novo nome: ")
-            turno = input("Novo turno: ")
+            id_ = obter_entrada_nao_vazia("ID do operador: ", "O ID não pode estar vazio.")
+            nome = obter_entrada_nao_vazia("Novo nome: ", "O nome não pode estar vazio.")
+            
+            turno = None
+            
             await atualizar_operador(id_, nome, turno)
+            
         elif op == "4":
-            id_ = input("ID a deletar: ")
+            id_ = obter_entrada_nao_vazia("ID a deletar: ", "O ID não pode estar vazio.")
             await deletar_operador(id_)
+            
         elif op == "0":
             break
+        else:
+            print("Opção inválida. Por favor, escolha uma opção válida.")
 
 # MAQUINAS
 async def menu_maquinas():
