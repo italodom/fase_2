@@ -3,19 +3,23 @@
 ## 📌 Nome do projeto
 **CanaTrack360 — Sistema de Rastreabilidade e Análise de Perdas na Colheita Mecanizada da Cana-de-Açúcar**
 
+## Nome do Grupo
+
+FarmTech Solutions
+
 ## 👨‍🎓 Integrantes:
-- Felipe Cristovão da Silva
-- Italo Domingues
-- Jocasta Bortolacci
-- Maison Wendrel Bezerra Ramos
+- Italo Domingues – RM: 561787
+- Maison Wendrel Bezerra Ramos – RM: 565616
+- Felipe Cristovao da Silva – RM: 564288
+- Jocasta de Kacia Bortolacci – RM: 564730
 
 ## 👩‍🏫 Professores:
 
 **Tutor(a):**  
-Nome do Tutor(a)
+Lucas Gomes Moreira
 
 **Coordenador(a):**  
-Nome do Coordenador(a)
+André Godoi Chiovato
 
 ---
 
@@ -73,9 +77,9 @@ Com base nessas informações, o sistema **gera relatórios detalhados** com ran
 - Oracle Database (XE ou similar)
 - IDE recomendada: PyCharm ou VSCode
 - Bibliotecas:
-    - `cx_Oracle`
-    - `json`
-    - `datetime`
+    - `uuid` 
+    - `oracledb`
+    - `asyncio`
 
 ### 🚀 Passo a passo
 
