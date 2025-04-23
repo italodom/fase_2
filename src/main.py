@@ -1,5 +1,6 @@
 import asyncio
 
+from src.common.utils import obter_entrada_nao_vazia, obter_numero_positivo
 from src.maquinas import cadastrar_maquina, listar_maquinas, atualizar_maquina, deletar_maquina
 from src.operadores import cadastrar_operador, listar_operadores, atualizar_operador, deletar_operador
 from src.registro_colheita import registrar_colheita, listar_colheitas, atualizar_colheita, deletar_colheita, \
@@ -7,7 +8,6 @@ from src.registro_colheita import registrar_colheita, listar_colheitas, atualiza
 from src.relatorios import resumo_geral, relatorio_por_talhao, relatorio_por_operador, relatorio_por_maquina, \
     ranking_causas_perda
 from src.talhoes import cadastrar_talhao, listar_talhoes, atualizar_talhao, deletar_talhao
-
 
 async def menu_principal():
     while True:
@@ -50,25 +50,36 @@ async def menu_talhoes():
         op = input("Escolha: ")
 
         if op == "1":
-            nome = input("Nome: ")
-            localizacao = input("Localização: ")
-            hectares = float(input("Hectares: "))
-            tipo_solo = input("Tipo de solo: ")
+            nome = obter_entrada_nao_vazia("Nome: ", "O nome do talhão não pode estar vazio.")
+            localizacao = obter_entrada_nao_vazia("Localização: ", "A localização não pode estar vazia.")
+            hectares = obter_numero_positivo("Hectares: ", "Hectares deve ser um número positivo.")
+
+            tipo_solo = None
+
             await cadastrar_talhao(nome, localizacao, hectares, tipo_solo)
+
         elif op == "2":
-            await listar_talhoes()  # Removido o 'return' daqui
+            await listar_talhoes()
+
         elif op == "3":
-            id_ = input("ID do talhão: ")
-            nome = input("Novo nome: ")
-            localizacao = input("Nova localização: ")
-            hectares = float(input("Novo hectares: "))
-            tipo_solo = input("Novo tipo de solo: ")
+            id_ = obter_entrada_nao_vazia("ID do talhão: ", "O ID não pode estar vazio.")
+            nome = obter_entrada_nao_vazia("Novo nome: ", "O nome não pode estar vazio.")
+            localizacao = obter_entrada_nao_vazia("Nova localização: ", "A localização não pode estar vazia.")
+            hectares = obter_numero_positivo("Novo hectares: ", "Hectares deve ser um número positivo.")
+
+            tipo_solo = None
+
             await atualizar_talhao(id_, nome, localizacao, hectares, tipo_solo)
+
         elif op == "4":
-            id_ = input("ID a deletar: ")
+            id_ = obter_entrada_nao_vazia("ID a deletar: ", "O ID não pode estar vazio.")
             await deletar_talhao(id_)
+
         elif op == "0":
             break
+        else:
+            print("Opção inválida. Por favor, escolha uma opção válida.")
+
 
 # OPERADORES
 async def menu_operadores():

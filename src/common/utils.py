@@ -19,3 +19,27 @@ def get_repositorio(nome: str):
 
 def gerar_id():
     return str(uuid.uuid4())
+
+def obter_entrada_nao_vazia(mensagem, erro_mensagem="Este campo não pode estar vazio."):
+    while True:
+        valor = input(mensagem)
+        if valor.strip():
+            return valor
+        print(erro_mensagem)
+
+def obter_numero_positivo(mensagem, erro_mensagem="Deve ser um número positivo."):
+    while True:
+        try:
+            valor = input(mensagem)
+            if not valor.strip():
+                print("Este campo não pode estar vazio.")
+                continue
+
+            numero = float(valor)
+            if numero <= 0:
+                print(erro_mensagem)
+                continue
+
+            return numero
+        except ValueError:
+            print("Por favor, digite um número válido.")
